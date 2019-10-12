@@ -24,5 +24,6 @@ API_DESCRIPTION = 'API to convert currencies '
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('rest_auth.urls')),
-    path('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
+    path('auth/registration/', include('rest_auth.registration.urls')),
+    path('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
 ]
