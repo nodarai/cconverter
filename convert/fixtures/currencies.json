@@ -1,0 +1,34 @@
+[
+    {
+        "model": "convert.currency",
+        "pk": 1,
+        "fields": {
+            "code": "EUR",
+            "full_name": "Euro"
+        }
+    },
+    {
+        "model": "convert.currency",
+        "pk": 2,
+        "fields": {
+            "code": "CZK",
+            "full_name": "Czech Republic Koruna"
+        }
+    },
+    {
+        "model": "convert.currency",
+        "pk": 3,
+        "fields": {
+            "code": "PLN",
+            "full_name": "Polish Zloty"
+        }
+    },
+    {
+        "model": "convert.currency",
+        "pk": 4,
+        "fields": {
+            "code": "USD",
+            "full_name": "United States Dollar"
+        }
+    }
+]

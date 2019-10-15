@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
 
+from convert.views import CurrencyViewSet, CurrencyRatesViewSet
+
 
 API_TITLE = 'Currency Converter API'
 API_DESCRIPTION = 'API to convert currencies '
@@ -26,4 +28,6 @@ urlpatterns = [
     path('auth/', include('rest_auth.urls')),
     path('auth/registration/', include('rest_auth.registration.urls')),
     path('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
+    path('currency/', CurrencyViewSet.as_view()),
+    path('rate/', CurrencyRatesViewSet.as_view()),
 ]
