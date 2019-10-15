@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from celery.schedules import crontab
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'rest_framework.authtoken',
+    'django_celery_beat',
     'convert',
 ]
 
@@ -155,3 +157,18 @@ AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+
+CELERY_BROKER_URL = 'sqla+sqlite:///db.sqlite3'
+CELERY_TASK_IGNORE_RESULT = True
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Paris'
+
+CELERY_BEAT_SCHEDULE = {
+    'update-rates-every-day': {
+        'task': 'convert.tasks.update_rates',
+        'schedule': crontab(minute=10, hour=3),
+    },
+}
