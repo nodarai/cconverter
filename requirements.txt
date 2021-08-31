@@ -11,7 +11,7 @@ django-allauth==0.40.0
 django-celery-beat==1.5.0
 django-rest-auth==0.9.5
 django-timezone-field==3.1
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 idna==2.8
 importlib-metadata==0.23
 itypes==1.1.0
